@@ -1,0 +1,51 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.6)
+
+2026-05-07T10:24:25.952+03:00  INFO 20392 --- [vote-system] [           main] c.e.vote_system.VoteSystemApplication    : Starting VoteSystemApplication using Java 17.0.12 with PID 20392 (C:\Users\Fitia\Documents\Kiady\ProjetPerso\vote-system\target\classes started by Fitia in c:\Users\Fitia\Documents\Kiady\ProjetPerso\vote-system)
+2026-05-07T10:24:25.954+03:00  INFO 20392 --- [vote-system] [           main] c.e.vote_system.VoteSystemApplication    : No active profile set, falling back to 1 default profile: "default"
+2026-05-07T10:24:26.825+03:00  INFO 20392 --- [vote-system] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-07T10:24:26.905+03:00  INFO 20392 --- [vote-system] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 4 JPA repository interfaces.
+2026-05-07T10:24:27.566+03:00  INFO 20392 --- [vote-system] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-07T10:24:27.606+03:00  INFO 20392 --- [vote-system] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-07T10:24:27.611+03:00  INFO 20392 --- [vote-system] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-07T10:24:27.846+03:00  INFO 20392 --- [vote-system] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1799 ms
+2026-05-07T10:24:28.052+03:00  INFO 20392 --- [vote-system] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-07T10:24:28.116+03:00  INFO 20392 --- [vote-system] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-07T10:24:28.718+03:00  INFO 20392 --- [vote-system] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-07T10:24:28.757+03:00  INFO 20392 --- [vote-system] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-07T10:24:28.979+03:00  INFO 20392 --- [vote-system] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@38cb1606
+2026-05-07T10:24:28.982+03:00  INFO 20392 --- [vote-system] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-07T10:24:29.072+03:00  INFO 20392 --- [vote-system] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/vote_system]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: vote_system/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-07T10:24:30.632+03:00  INFO 20392 --- [vote-system] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-07T10:24:30.640+03:00  INFO 20392 --- [vote-system] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-07T10:24:30.727+03:00  INFO 20392 --- [vote-system] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-07T10:24:32.078+03:00  INFO 20392 --- [vote-system] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-07T10:24:32.085+03:00  INFO 20392 --- [vote-system] [           main] c.e.vote_system.VoteSystemApplication    : Started VoteSystemApplication in 6.861 seconds (process running for 7.592)
+2026-05-07T10:25:34.089+03:00  INFO 20392 --- [vote-system] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-07T10:25:34.089+03:00  INFO 20392 --- [vote-system] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-07T10:25:34.094+03:00  INFO 20392 --- [vote-system] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:4.0.6:run (default-cli) on project vote-system: Process terminated with exit code: -1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

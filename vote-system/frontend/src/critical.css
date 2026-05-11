@@ -1,0 +1,24 @@
+/* Critical CSS — loaded first for fast first paint */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #0a0f1f;
+  background: linear-gradient(180deg, #090d19 0%, #101b2d 100%);
+  color: #e7ecf7;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.loading {
+  padding: 40px;
+  text-align: center;
+  color: #9fb2cc;
+}
