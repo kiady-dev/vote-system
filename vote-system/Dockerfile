@@ -8,6 +8,7 @@ RUN mvn -DskipTests package
 FROM eclipse-temurin:17-jre
 WORKDIR /app
 COPY --from=build /app/target/vote-system-0.0.1-SNAPSHOT.jar /app/app.jar
+COPY --from=build /app/images /app/images
 EXPOSE 8080
 ENV JAVA_OPTS=""
 CMD ["sh", "-c", "java $JAVA_OPTS -jar /app/app.jar"]
