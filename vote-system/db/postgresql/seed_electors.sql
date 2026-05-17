@@ -101,7 +101,7 @@ INSERT INTO electors (voter_code, national_id, full_name, promotion_label) VALUE
 ('383716', '383 716', 'Rajaonarison Adonia Denisse', '7e PROMOTION'),
 ('383722', '383 722', 'Rakotoarisoa Diana Safira', '7e PROMOTION'),
 ('383723', '383 723', 'Rakotovao Rondrolalaina Volatiana', '7e PROMOTION'),
-('TEMP-7-KARMEN', NULL, 'ANDRIAMAROELINA Haingonavalona Karmen', '7e PROMOTION'),
+('302450', '302 450', 'ANDRIAMAROELINA Haingonavalona Karmen', '7e PROMOTION'),
 ('383720', '383 720', 'Andriamampianina Zo AINA', '7e PROMOTION');
 
 INSERT INTO electors (voter_code, national_id, full_name, promotion_label) VALUES
@@ -134,7 +134,7 @@ INSERT INTO electors (voter_code, national_id, full_name, promotion_label) VALUE
 ('322855', '322 855', 'RABARIMANANA Jeannot Fidèle', '9e PROMOTION'),
 ('447537', '447 537', 'SAFIDINARINDRA Herilanja Judith', '9e PROMOTION'),
 ('447534', '447 534', 'RAJAONA Andriamaharo Andomalala Gabriella', '9e PROMOTION'),
-('TEMP-9-DOMOHINA', NULL, 'RAKOTOVAO Domohina', '9e PROMOTION'),
+('447536', '447 536', 'RAKOTOVAO Domohina', '9e PROMOTION'),
 ('447535', '447 535', 'ANDRIANKASINA Hanitrarivelo Rindra', '9e PROMOTION'),
 ('447529', '447 529', 'RAMANAKIRAHINA Fetra Herisoa', '9e PROMOTION'),
 ('447528', '447 528', 'RAZAFIMAHATRATRA Maminiaina Eric', '9e PROMOTION'),
@@ -146,6 +146,6 @@ INSERT INTO electors (voter_code, national_id, full_name, promotion_label) VALUE
 ('447539', '447 539', 'RAKOTONIRINA Fanomezantsoa Dina Andrianina', '9e PROMOTION'),
 ('343390', '343 390', 'RANJALAHY Georgius Garsis', '9e PROMOTION'),
 ('322852', '322 852', 'HENINTSOA Jean Felix Hervé', '9e PROMOTION'),
-('TEMP-9-LUCAS', NULL, 'RANDRIANATONDRO Lucas Richard', '9e PROMOTION');
+('001001', '001 001', 'RANDRIANATONDRO Lucas Richard', '9e PROMOTION');
 
 COMMIT;

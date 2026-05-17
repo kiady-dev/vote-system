@@ -1,0 +1,12 @@
+# Render backend environment variables
+# Add these in Render -> Web Service -> Environment
+
+CORS_ALLOWED_ORIGINS=https://vote-system-frontend.onrender.com
+SPRING_DATASOURCE_URL=jdbc:postgresql://dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require
+SPRING_DATASOURCE_USERNAME=vote_user
+SPRING_DATASOURCE_PASSWORD=cCZRedgeuvPTESXdgDcxaIlZ5JD5HUpb
+ADMIN_TOKEN=your_admin_token_here
+
+# Notes:
+# - The important variable for the frontend CORS error is CORS_ALLOWED_ORIGINS.
+# - If you change the frontend domain later, update this value to the exact Render frontend URL.

@@ -1,0 +1,52 @@
+RESET DATABASE - Commands & Instructions
+
+1) RECOMMENDED: Run inside Render (SQL Editor)
+- Open Render dashboard → Databases → your database → "Open SQL" or "SQL Editor".
+- Paste the full SQL from `db/postgresql/reset_database.sql` and execute.
+- If you want to reseed, paste and execute the contents of these files in order:
+  - db/postgresql/seed_candidates.sql
+  - db/postgresql/seed_electors.sql
+  - db/postgresql/seed_elector_passwords.sql
+
+(Using the Render SQL Editor avoids network/port issues.)
+
+---
+2) Windows CMD (run from repo root where db/postgresql exists)
+Paste and run these lines in Command Prompt:
+
+set PGPASSWORD=cCZRedgeuvPTESXdgDcxaIlZ5JD5HUpb
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -f db/postgresql/reset_database.sql
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -f db/postgresql/seed_candidates.sql
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -f db/postgresql/seed_electors.sql
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -f db/postgresql/seed_elector_passwords.sql
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -c "SELECT COUNT(*) AS votes_count FROM votes;"
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -c "SELECT COUNT(*) AS voted_electors FROM electors WHERE has_voted = true;"
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -c "SELECT code, status FROM elections WHERE code = 'election-president-tresorier-2026';"
+set PGPASSWORD=
+
+---
+3) PowerShell (run from repo root)
+Paste and run these lines in PowerShell:
+
+$env:PGPASSWORD = 'cCZRedgeuvPTESXdgDcxaIlZ5JD5HUpb'
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -f db/postgresql/reset_database.sql
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -f db/postgresql/seed_candidates.sql
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -f db/postgresql/seed_electors.sql
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -f db/postgresql/seed_elector_passwords.sql
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -c "SELECT COUNT(*) AS votes_count FROM votes;"
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -c "SELECT COUNT(*) AS voted_electors FROM electors WHERE has_voted = true;"
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -c "SELECT code, status FROM elections WHERE code = 'election-president-tresorier-2026';"
+Remove-Item Env:\PGPASSWORD
+
+---
+4) If network times out (Connection timed out)
+- Use Render Dashboard → Database → Open SQL Editor and paste the SQL manually (step 1).
+- Or run the commands from a machine that can reach the Render DB (cloud VM, GitHub Actions, etc.).
+
+---
+5) Notes
+- Order matters: reset_database.sql then seeds.
+- Reset script clears votes and sets election to CLOSED (does not delete candidates/electors).
+- If you want a full fresh import, run reset then the three seed files.
+
+Saved to: db-reset-commands.txt

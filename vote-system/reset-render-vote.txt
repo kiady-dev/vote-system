@@ -1,0 +1,41 @@
+RESET VOTE SYSTEM - RENDER
+
+But:
+- Effacer les votes de test
+- Remettre tous les electeurs a "not voted"
+- Vider les logs d'audit
+- Remettre l'election a CLOSED
+
+Commande a lancer sur Render (PostgreSQL externe):
+
+psql "postgresql://vote_user:cCZRedgeuvPTESXdgDcxaIlZ5JD5HUpb@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -f db/postgresql/reset_database.sql
+
+Puis re-seed si besoin:
+
+psql "postgresql://vote_user:cCZRedgeuvPTESXdgDcxaIlZ5JD5HUpb@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -f db/postgresql/seed_candidates.sql
+psql "postgresql://vote_user:cCZRedgeuvPTESXdgDcxaIlZ5JD5HUpb@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -f db/postgresql/seed_electors.sql
+psql "postgresql://vote_user:cCZRedgeuvPTESXdgDcxaIlZ5JD5HUpb@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -f db/postgresql/seed_elector_passwords.sql
+
+Verification rapide:
+
+psql "postgresql://vote_user:cCZRedgeuvPTESXdgDcxaIlZ5JD5HUpb@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -c "SELECT COUNT(*) FROM votes;"
+psql "postgresql://vote_user:cCZRedgeuvPTESXdgDcxaIlZ5JD5HUpb@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -c "SELECT status FROM elections WHERE code = 'election-president-tresorier-2026';"
+
+Local reset (si base locale):
+- db/postgresql/reset_database.ps1
+- db/postgresql/reset_database.bat
+
+Note:
+- Ce reset ne recrée pas la structure, il remet juste l'election et les votes a zero.
+- Si tu veux repartir de zero total, il faut faire reset_database.sql puis relancer les seeds.
+
+
+$env:PGPASSWORD = 'cCZRedgeuvPTESXdgDcxaIlZ5JD5HUpb'
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -f db/postgresql/reset_database.sql
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -f db/postgresql/seed_candidates.sql
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -f db/postgresql/seed_electors.sql
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -f db/postgresql/seed_elector_passwords.sql
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -c "SELECT COUNT(*) AS votes_count FROM votes;"
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -c "SELECT COUNT(*) AS voted_electors FROM electors WHERE has_voted = true;"
+psql "postgresql://vote_user@dpg-d813f87lk1mc73a37su0-a.oregon-postgres.render.com:5432/vote_system_96yy?sslmode=require" -c "SELECT code, status FROM elections WHERE code = 'election-president-tresorier-2026';"
+Remove-Item Env:\PGPASSWORD
